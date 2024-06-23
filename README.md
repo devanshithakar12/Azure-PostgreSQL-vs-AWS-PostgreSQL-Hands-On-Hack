@@ -36,14 +36,26 @@ Steps
 
 ### PART 2: USING PGVECTOR
 
-In this hack, we will explore the Generative AI Studio inside Vertex AI component of the GCP console. 
+In this hack, we will explore the capabilities of PGVector.
 
 Steps 
-* Navigate to the three lines at the top left of the GCP Console. You will see a dropdown list. Scroll down until you find the Artificail Intelligence section. We want to click on Vertex AI. It may be helpful to pin this service so it shows up at the top of the drop down next time. 
-* You will see the Generative AI Studio on the left sidebar. Click on Vision. Choose the "Gen-AI-Demo-Img" from the data folder and upload it to the UI.
-* We can experiement with the two features "Caption" and "Visual Q&A"
-  
+* [Tutorial we will be following](https://aws.amazon.com/blogs/database/building-ai-powered-search-in-postgresql-using-amazon-sagemaker-and-pgvector/)
+     * Install the PGVector extension
+          * `CREATE EXTENSION vector`
+          * `SELECT typname FROM pg_type WHERE typname = 'vector';`
+     * Crete a table
+          * `CREATE TABLE test_embeddings(product_id bigint, embeddings vector(3) );`
+          * `INSERT INTO test_embeddings VALUES`
+          * `(1, '[1, 2, 3]'), (2, '[2, 3, 4]'), (3, '[7, 6, 8]'), (4, '[8, 6, 9]');`
+          * `SELECT product_id, embeddings, embeddings <-> '[3,1,2]' AS distance`
+          * `FROM test_embeddings`
+          * `ORDER BY embeddings <-> '[3,1,2]';`
+          * Clean up!
+               * `DROP TABLE test_embeddings;`
 
+### PART 3: CLEAN-UP
+
+* (Delete the EC2 ans DB instance)[https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Deleting.PostgreSQL]
 
 ### Resources 
 * 
