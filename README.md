@@ -9,18 +9,20 @@
 ### HACK PRE-REQUISITES 
 
 * Clone this repository or download the zip file.
-
-### PART 1: COMPUTE + POSTGRESQL DB
-
-In this hack, we will create an EC2 instance, a PostgreSQL RDS DB, and finally connect to the database.
-
-Steps
 * Navigate to [Amazon Console](https://gpsus.signin.aws.amazon.com/console)
 * Pin EC2, Amazon RDS, and Amazon SageMaker for easy access (Optional)
 * The tutorial we will follow to [create and connect to a PostgreSQL DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html)
     * [Create an EC2 instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Creating.RDSPostgreSQL.EC2)
         * Note: Your .pem key should be downloaded after this step and stored somewhere locally
     * [Create a PostgreSQL DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Creating.PostgreSQL)
+
+
+### PART 1: COMPUTE + POSTGRESQL DB
+
+In this hack, we will create an EC2 instance, a PostgreSQL RDS DB, and finally connect to the database.
+
+Steps
+   * PostgreSQL RDS DB
         * Once the status shows Available, go to the Database instance and ensure that it has "Public" access by clicking on the Modify button. [Public Access](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         * [Check Security Permissions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
     * [Connect to a PostgreSQL RDS Database](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Connecting.PostgreSQL)
