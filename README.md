@@ -30,7 +30,7 @@ Steps
       * PSQL 
           * Connect to your EC2 instance `ssh -i location_of_pem_file ec2-user@ec2-instance-public-dns-name`
           * Latest bug fixes and security updates `sudo dnf update -y`
-          * Install psql command line client from PostgreSQL on Amazon Linux 2023 `				1) sudo dnf install postgresql15`
+          * Install psql command line client from PostgreSQL on Amazon Linux 2023 `sudo dnf install postgresql15`
           * Connect to the PostgreSQL DB instance  `psql --host=endpoint --port=5432 --dbname=postgres --username=postgres`
           * Practice some commands
               * `SELECT CURRENT_TIMESTAMP;`
@@ -55,11 +55,20 @@ Steps
           * Clean up!
                * `DROP TABLE test_embeddings;`
 
-### PART 3: CLEAN-UP
+### PART 3: AI-powered search in PostgreSQL using AWS SageMaker and pgvector
+
+Steps:
+* [Tutorial here](https://github.com/aws-samples/rds-postgresql-pgvector/tree/main)
+   * Navigate to Amazon Sagemaker -> Notebooks -> Git repositories -> Clone a public Git repository to this notebook instance only -> Add the link from above 
+   * Once created -> Open Jupyter
+   * Run each cell
+   * Replace the db credentials with your RDS PostgreSQL credentials
+     
+### PART 4: CLEAN-UP
 
 * (Delete the EC2 ans DB instance)[https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Deleting.PostgreSQL]
 
 ### Resources 
-* 
+
 
 
