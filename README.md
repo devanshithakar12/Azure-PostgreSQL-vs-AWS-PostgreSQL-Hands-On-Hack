@@ -25,6 +25,20 @@ Steps
    * PostgreSQL RDS DB
         * Once the status shows Available, go to the Database instance and ensure that it has "Public" access by clicking on the Modify button. [Public Access](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         * [Check Security Permissions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        * Networing Configurations
+             * Navigate to your Amazon PostgreSQL RDS Database
+                  * Examine Networking: Go to VPC Security Group
+                      * Inbound Rules: It should have connectivity from everywhere to this security group.
+                      * Outbound Rules: Empty! There is no traffic that goes out from the security group from this subnet.
+                  * Navigate to Linux shell (WSL) to validate
+                       * `dig "ENTER DB-HOST NAME` : The IP address should be public -> 52.8.215.180
+                       * `nc -v "ENTER DB-HOST NAME" "ENTER PORT NUMBER"` : Validate TCP/IP connectivity and see if you can connect or not 
+                  * Go back to console. Your RDS instance should be associated with a VPC and two subnet groups.
+                       * Check the routing table configuration in the VPC -> Main routing table
+                       * You should have 2 routes: one local, one global pointing to the internet gateway. So the VPC itself has outbound connectivity to the internet.
+                       * Navigate to the subnet routing table -> Subnets -> Route table. You should see local and igw route. 
+                       * Go back to the VPC routing table-> Subnet Associations -> Associate the RDS subnets with this main table. This is how we can establish connectivity since we fixed outbound rules. This way, we allow outbound packets to go out from this subnet and provided a route to the internet.
+
     * [Connect to a PostgreSQL RDS Database](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Connecting.PostgreSQL)
       * [PGAdmin 4](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToPostgreSQLInstance.html#USER_ConnectToPostgreSQLInstance.pgAdmin)
       * PSQL 
