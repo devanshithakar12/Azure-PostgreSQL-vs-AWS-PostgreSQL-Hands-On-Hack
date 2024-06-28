@@ -3,8 +3,9 @@
 ## Overview
 
 ### TOOLS
+* Install pgAdmin 4
+* WSL
 * Windows Powershell
-* Install pgAdmin 4 
 
 ### HACK PRE-REQUISITES 
 
@@ -25,7 +26,14 @@ Configurations
    * PostgreSQL RDS DB
         * Once the status shows Available, go to the Database instance and ensure that it has "Public" access by clicking on the Modify button. [Public Access](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         * [Check Security Permissions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-             * Allow all ip4 addresses with PostgreSQL traffic.
+             * Navigate to your RDS instance -> VPC Security Groups -> Choose your rds security group -> Scroll down to Inbound and Outbound rules. 
+                  * Inbound Rules: Connectivity should include the already exisiting connection from the EC2 instance. Please also add in the connectivity for the SG for inbound traffic on the PostgreSQL port to access the PostgreSQL DB. We want to allow all ipv4 and ipv6 addresses. Add the two rules below.
+                      * Type: PostgreSQL and Source: Anywhere-IPv4
+                      * Type: PostgreSQL and Source: Anywhere-IPv6
+                  * Outbound Rules: Not needed.
+             * Navigate to your RDS instance -> VPC Security Groups -> Choose your ec2 security group -> Scroll down to Inbound and Outbound rules.
+                  * Inbound Rules: Not needed.
+                  * Outbound Rules: You should have the exisiting SG rule to allow connections to your RDS instance.
         * Networing Configurations
              * Navigate to your Amazon PostgreSQL RDS Database
                   * Examine Networking: Go to VPC Security Group
