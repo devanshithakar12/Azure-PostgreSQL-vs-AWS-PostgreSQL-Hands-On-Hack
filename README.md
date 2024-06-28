@@ -49,27 +49,23 @@ Configurations
                             * If you do not, then go to Route table ID -> Edit routes -> Destination: `0.0.0.0/0` and Target: Internet Gateway `igw-xxxx`
                        * Go back to the VPC routing table-> Subnet Associations -> Associate the RDS subnets with this main table. This is how we can establish connectivity since we fixed outbound rules. This way, we allow outbound packets to go out from this subnet and provided a route to the internet.
 
-Connecting to PostgreSQL RDS RB                 
-       *[Tutorial](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Connecting.PostgreSQL)
-    
-      * [PGAdmin 4](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToPostgreSQLInstance.html#USER_ConnectToPostgreSQLInstance.pgAdmin)
-         * Add New Server 
-            * Provide a name for your server
-            * Provide your connection db host name
-            * Confirm the right port, username 
-            * Provide your db password
-            * Hit Save
-      * PSQL 
-          * Connect to your EC2 instance `ssh -i location_of_pem_file ec2-user@ec2-instance-public-dns-name`
-          * Latest bug fixes and security updates `sudo dnf update -y`
-          * Install psql command line client from PostgreSQL on Amazon Linux 2023 `sudo dnf install postgresql15`
-          * Connect to the PostgreSQL DB instance  `psql --host=endpoint --port=5432 --dbname=postgres --username=postgres`
-          * Practice some commands
-              * `SELECT CURRENT_TIMESTAMP;`
-              * Note: Make sure you are running on Postgres version later than 15.2 otherwise pgvector is not available as an extension on RDS `SHOW rds.extensions;`                  
-
-
-
+### Two Ways to connect to your PostgreSQL RDS RB       
+   * PGAdmin 4
+   * [Tutorial](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Connecting.PostgreSQL)
+     * Add New Server 
+       * Provide a name for your server
+          * Provide your connection db host name
+          * Confirm the right port, username 
+          * Provide your db password
+          * Hit Save
+   * PSQL 
+     * Connect to your EC2 instance `ssh -i location_of_pem_file ec2-user@ec2-instance-public-dns-name`
+     * Latest bug fixes and security updates `sudo dnf update -y`
+     * Install psql command line client from PostgreSQL on Amazon Linux 2023 `sudo dnf install postgresql15`
+     * Connect to the PostgreSQL DB instance  `psql --host=endpoint --port=5432 --dbname=postgres --username=postgres`
+     * Practice some commands
+     * `SELECT CURRENT_TIMESTAMP;`
+     * Note: Make sure you are running on Postgres version later than 15.2 otherwise pgvector is not available as an extension on RDS `SHOW rds.extensions;`            
 ### PART 2: USING PGVECTOR
 
 In this hack, we will explore the capabilities of PGVector.
@@ -107,6 +103,7 @@ Steps:
 * (Delete the EC2 ans DB instance)[https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Deleting.PostgreSQL]
 
 ### Resources 
+* [PGAdmin 4 Download](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToPostgreSQLInstance.html#USER_ConnectToPostgreSQLInstance.pgAdmin)
 
 
 
