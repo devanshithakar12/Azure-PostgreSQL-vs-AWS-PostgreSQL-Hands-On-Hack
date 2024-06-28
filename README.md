@@ -85,6 +85,7 @@ Steps
           * `SELECT product_id, embeddings, embeddings <-> '[3,1,2]' AS distance`
           * `FROM test_embeddings`
           * `ORDER BY embeddings <-> '[3,1,2]';`
+     * Test the above command with cosine distance `<=>`, and L1 distance `<+>` also!
      * Clean up!
           * `DROP TABLE test_embeddings;`
 
