@@ -19,9 +19,9 @@
 
 ### PART 1: COMPUTE + POSTGRESQL DB
 
-In this hack, we will create an EC2 instance, a PostgreSQL RDS DB, and finally connect to the database.
+In this hack, we will connect to the database.
 
-Steps
+Configurations
    * PostgreSQL RDS DB
         * Once the status shows Available, go to the Database instance and ensure that it has "Public" access by clicking on the Modify button. [Public Access](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         * [Check Security Permissions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
@@ -39,7 +39,9 @@ Steps
                        * Navigate to the subnet routing table -> Subnets -> Route table. You should see local and igw route. 
                        * Go back to the VPC routing table-> Subnet Associations -> Associate the RDS subnets with this main table. This is how we can establish connectivity since we fixed outbound rules. This way, we allow outbound packets to go out from this subnet and provided a route to the internet.
 
-    * [Connect to a PostgreSQL RDS Database](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Connecting.PostgreSQL)
+Connecting to PostgreSQL RDS RB                 
+       *[Tutorial](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Connecting.PostgreSQL)
+    
       * [PGAdmin 4](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToPostgreSQLInstance.html#USER_ConnectToPostgreSQLInstance.pgAdmin)
       * PSQL 
           * Connect to your EC2 instance `ssh -i location_of_pem_file ec2-user@ec2-instance-public-dns-name`
@@ -48,7 +50,9 @@ Steps
           * Connect to the PostgreSQL DB instance  `psql --host=endpoint --port=5432 --dbname=postgres --username=postgres`
           * Practice some commands
               * `SELECT CURRENT_TIMESTAMP;`
-              * Note: Make sure you are running on Postgres version later than 15.2 otherwise pgvector is not available as an extension on RDS `SHOW rds.extensions;`
+              * Note: Make sure you are running on Postgres version later than 15.2 otherwise pgvector is not available as an extension on RDS `SHOW rds.extensions;`                  
+
+
 
 ### PART 2: USING PGVECTOR
 
