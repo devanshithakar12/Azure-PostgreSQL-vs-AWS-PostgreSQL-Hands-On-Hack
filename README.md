@@ -53,6 +53,12 @@ Connecting to PostgreSQL RDS RB
        *[Tutorial](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Connecting.PostgreSQL)
     
       * [PGAdmin 4](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToPostgreSQLInstance.html#USER_ConnectToPostgreSQLInstance.pgAdmin)
+         * Add New Server 
+            * Provide a name for your server
+            * Provide your connection db host name
+            * Confirm the right port, username 
+            * Provide your db password
+            * Hit Save
       * PSQL 
           * Connect to your EC2 instance `ssh -i location_of_pem_file ec2-user@ec2-instance-public-dns-name`
           * Latest bug fixes and security updates `sudo dnf update -y`
