@@ -25,6 +25,7 @@ Configurations
    * PostgreSQL RDS DB
         * Once the status shows Available, go to the Database instance and ensure that it has "Public" access by clicking on the Modify button. [Public Access](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         * [Check Security Permissions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+             * Allow all ip4 addresses with PostgreSQL traffic.
         * Networing Configurations
              * Navigate to your Amazon PostgreSQL RDS Database
                   * Examine Networking: Go to VPC Security Group
