@@ -74,16 +74,19 @@ Steps
 * [Tutorial we will be following](https://aws.amazon.com/blogs/database/building-ai-powered-search-in-postgresql-using-amazon-sagemaker-and-pgvector/)
      * Install the PGVector extension
           * `CREATE EXTENSION vector`
+     * New datatype called vector is installed
           * `SELECT typname FROM pg_type WHERE typname = 'vector';`
-     * Crete a table
+     * Crete a table for storing three dimensional vectors
           * `CREATE TABLE test_embeddings(product_id bigint, embeddings vector(3) );`
+     * Insert sample data
           * `INSERT INTO test_embeddings VALUES`
           * `(1, '[1, 2, 3]'), (2, '[2, 3, 4]'), (3, '[7, 6, 8]'), (4, '[8, 6, 9]');`
+     * Query data using Euclidean distance 
           * `SELECT product_id, embeddings, embeddings <-> '[3,1,2]' AS distance`
           * `FROM test_embeddings`
           * `ORDER BY embeddings <-> '[3,1,2]';`
-          * Clean up!
-               * `DROP TABLE test_embeddings;`
+     * Clean up!
+          * `DROP TABLE test_embeddings;`
 
 ### PART 3: AI-powered search in PostgreSQL using AWS SageMaker and pgvector
 
