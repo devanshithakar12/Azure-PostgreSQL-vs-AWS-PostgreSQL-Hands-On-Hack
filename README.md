@@ -45,7 +45,8 @@ Configurations
                   * Go back to console. Your RDS instance should be associated with a VPC and two subnet groups.
                        * Check the routing table configuration in the VPC -> Main routing table
                        * You should have 2 routes: one local, one global pointing to the internet gateway. So the VPC itself has outbound connectivity to the internet.
-                       * Navigate to the subnet routing table -> Subnets -> Route table. You should see local and igw route. 
+                       * Navigate to the subnet routing table -> Subnets -> Route table. You should see local and igw route.
+                            * If you do not, then go to Edit route table association -> 0.0.0.0/0 and igw-xxxx
                        * Go back to the VPC routing table-> Subnet Associations -> Associate the RDS subnets with this main table. This is how we can establish connectivity since we fixed outbound rules. This way, we allow outbound packets to go out from this subnet and provided a route to the internet.
 
 Connecting to PostgreSQL RDS RB                 
