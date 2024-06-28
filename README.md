@@ -18,9 +18,9 @@
     * [Create a PostgreSQL DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Creating.PostgreSQL)
 
 
-### PART 1: COMPUTE + POSTGRESQL DB
+### PART 1: NETWORKING CONFIGURATIONS + PG ADMIN 4
 
-In this hack, we will connect to the database.
+In this hack, we will work on the network configurations and try connecting to the database.
 
 Configurations
    * PostgreSQL RDS DB
@@ -97,8 +97,12 @@ Steps:
    * Once created -> Open Jupyter
    * Run each cell
    * Replace the db credentials with your RDS PostgreSQL credentials
-     
-### PART 4: CLEAN-UP
+
+### PART 4: RAG with Amazon Bedrock, PostgreSQL, and PGVector 
+* [Main Workshop Link](https://ws-assets-prod-iad-r-iad-ed304a55c2ca1aee.s3.us-east-1.amazonaws.com/31d6eec7-687f-495c-8ad6-aa7f38c803fb/pgvector/index.html)
+* [RAG Notebook](https://catalog.workshops.aws/pgvector/en-US/4-retrieval-augmented-generation/question-answering-using-amazon-bedrock-llms/task2)
+
+### PART 5: CLEAN-UP
 
 * (Delete the EC2 ans DB instance)[https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html#CHAP_GettingStarted.Deleting.PostgreSQL]
 
