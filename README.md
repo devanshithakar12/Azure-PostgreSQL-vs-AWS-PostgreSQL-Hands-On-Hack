@@ -107,6 +107,7 @@ Steps:
 
 ### Resources 
 * [PGAdmin 4 Download](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToPostgreSQLInstance.html#USER_ConnectToPostgreSQLInstance.pgAdmin)
+* [PGVector](https://github.com/pgvector/pgvector)
 
 
 
